@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUBALEGHASRI M — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --dur:700ms;
+  --ease:cubic-bezier(0.4,0,0.2,1);
+  --bg:#f5ece0;
+  --bg2:#eeddd0;
+  --accent:#d4703a;
+  --accent2:#b85a28;
+  --text:#2c1a0e;
+  --text2:#6b4733;
+  --text3:#a07558;
+  --border:rgba(180,100,50,0.18);
+  --card:rgba(255,248,240,0.7);
+  --glow:rgba(212,112,58,0.2);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:background var(--dur) var(--ease),color var(--dur) var(--ease);
+  overflow-x:hidden;
+}
+.t-heading{font-family:'Fraunces',serif;font-weight:700;letter-spacing:-0.02em;line-height:1.1;transition:color var(--dur) var(--ease)}
+.t-sub{font-family:'Fraunces',serif;font-weight:300;font-style:italic}
+
+/* ── NAV ─────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 52px;
+  background:var(--bg);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(14px);
+  transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease);
+}
+.nav-logo{font-family:'Fraunces',serif;font-weight:700;font-size:1.15rem;color:var(--accent);letter-spacing:0.06em;text-decoration:none;transition:color var(--dur) var(--ease)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:0.76rem;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;color:var(--text2);font-weight:500;transition:color 200ms;cursor:pointer}
+.nav-links a:hover{color:var(--accent)}
+
+/* ── LOADER ──────────────────────────── */
+#loader{
+  position:fixed;inset:0;z-index:9999;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:#110e07;
+  transition:opacity 700ms ease,visibility 700ms ease;
+}
+#loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.loader-bloom{
+  width:200px;height:200px;border-radius:50%;
+  animation:bloom 2.6s ease-in-out infinite;
+  position:relative;display:flex;align-items:center;justify-content:center;
+}
+.loader-bloom::before{
+  content:'';position:absolute;inset:20px;border-radius:50%;
+  background:radial-gradient(circle,#f0a060 0%,#5baed6 50%,#4caf6a 100%);
+  animation:bloomInner 2.6s ease-in-out infinite reverse;
+}
+@keyframes bloom{
+  0%{box-shadow:0 0 70px 24px #d4703a88}
+  38%{box-shadow:0 0 90px 32px #5baed688}
+  76%{box-shadow:0 0 70px 28px #4caf6a88}
+  100%{box-shadow:0 0 70px 24px #d4703a88}
+}
+@keyframes bloomInner{
+  0%{background:radial-gradient(circle,#f0a060 0%,#5baed6 50%,#4caf6a 100%)}
+  40%{background:radial-gradient(circle,#5baed6 0%,#4caf6a 50%,#f0a060 100%)}
+  80%{background:radial-gradient(circle,#4caf6a 0%,#f0a060 50%,#5baed6 100%)}
+  100%{background:radial-gradient(circle,#f0a060 0%,#5baed6 50%,#4caf6a 100%)}
+}
+.loader-name{margin-top:36px;font-family:'Fraunces',serif;font-size:1.6rem;color:#e8d5b0;letter-spacing:0.14em;animation:fadePulse 2.6s ease-in-out infinite}
+.loader-sub{margin-top:8px;font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:#7a6a50;animation:fadePulse 2.6s 0.3s ease-in-out infinite}
+.loader-bar-wrap{margin-top:32px;width:200px;height:2px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden}
+.loader-bar{height:100%;width:0%;background:linear-gradient(90deg,#d4703a,#5baed6,#4caf6a);border-radius:2px;animation:loadBar 2.3s ease-in-out forwards}
+.loader-pct{margin-top:12px;font-size:0.78rem;color:#7a6a50;font-family:'Fraunces',serif;animation:countUp 2.3s ease-in-out forwards}
+@keyframes loadBar{0%{width:0%}100%{width:100%}}
+@keyframes fadePulse{0%,100%{opacity:0.55}50%{opacity:1}}
+
+/* ── SECTION BASE ────────────────────── */
+section{min-height:100vh;padding:130px 52px 90px;position:relative;overflow:hidden;transition:background var(--dur) var(--ease)}
+.container{max-width:1120px;margin:0 auto}
+.section-header{margin-bottom:58px}
+.section-eyebrow{font-size:0.68rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;font-weight:600;transition:color var(--dur) var(--ease)}
+.section-title{font-size:clamp(1.9rem,3.2vw,2.9rem);color:var(--text);transition:color var(--dur) var(--ease)}
+.section-rule{width:48px;height:2px;background:var(--accent);margin-top:16px;border-radius:1px;transition:background var(--dur) var(--ease)}
+
+/* ── HOME ────────────────────────────── */
+#home{display:flex;align-items:center;background:var(--bg)}
+.home-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;width:100%}
+.home-eyebrow{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;font-weight:600;transition:color var(--dur) var(--ease)}
+.home-title{font-size:clamp(2.8rem,5vw,4.6rem);color:var(--text);transition:color var(--dur) var(--ease);margin-bottom:6px;line-height:1.05}
+.home-subtitle{font-size:1.05rem;color:var(--text2);line-height:1.8;margin-top:22px;font-weight:400;transition:color var(--dur) var(--ease);max-width:420px}
+.home-cta{display:inline-flex;align-items:center;gap:10px;margin-top:36px;padding:14px 32px;border:1.5px solid var(--accent);color:var(--accent);font-size:0.8rem;letter-spacing:0.13em;text-transform:uppercase;font-weight:600;border-radius:2px;cursor:pointer;text-decoration:none;transition:background 200ms,color 200ms,border-color var(--dur) var(--ease),color var(--dur) var(--ease)}
+.home-cta:hover{background:var(--accent);color:#fff}
+#kinetic{width:100%;height:420px;position:relative;border-radius:8px;overflow:hidden;border:1px solid var(--border);transition:border-color var(--dur) var(--ease)}
+canvas#wave{position:absolute;inset:0;width:100%;height:100%}
+.scroll-hint{position:absolute;bottom:44px;left:52px;display:flex;align-items:center;gap:12px;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text3);transition:color var(--dur) var(--ease)}
+.scroll-line{width:44px;height:1px;background:var(--text3);transition:background var(--dur) var(--ease)}
+
+/* ── ABOUT ───────────────────────────── */
+#about{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:start}
+.about-stat{margin-bottom:30px}
+.about-stat-num{font-family:'Fraunces',serif;font-size:2.8rem;font-weight:700;color:var(--accent);line-height:1;transition:color var(--dur) var(--ease)}
+.about-stat-label{font-size:0.76rem;color:var(--text2);margin-top:5px;letter-spacing:0.06em;transition:color var(--dur) var(--ease)}
+.about-bio{font-size:1.02rem;line-height:1.88;color:var(--text2);transition:color var(--dur) var(--ease)}
+.about-bio p+p{margin-top:1.1em}
+.about-bio strong{color:var(--text);font-weight:600;transition:color var(--dur) var(--ease)}
+.pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.pill{padding:6px 14px;border:1px solid var(--border);border-radius:20px;font-size:0.74rem;letter-spacing:0.06em;color:var(--text3);transition:border-color var(--dur) var(--ease),color var(--dur) var(--ease)}
+
+/* ── SKILLS ──────────────────────────── */
+#skills{background:var(--bg)}
+.skills-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.radar-wrap{position:relative;width:100%;padding-bottom:100%;background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease)}
+.radar-wrap canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
+.skill-list{display:flex;flex-direction:column;gap:14px}
+.skill-item{padding:16px 20px;background:var(--card);border:1px solid var(--border);border-radius:6px;cursor:default;transition:transform 200ms,border-color var(--dur) var(--ease),background var(--dur) var(--ease)}
+.skill-item:hover{transform:translateX(6px)}
+.skill-item-top{display:flex;justify-content:space-between;align-items:center}
+.skill-name{font-weight:600;font-size:0.86rem;color:var(--text);transition:color var(--dur) var(--ease)}
+.skill-pct{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--accent);transition:color var(--dur) var(--ease)}
+.skill-cat{font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);margin-top:3px;transition:color var(--dur) var(--ease)}
+.skill-bar-bg{height:3px;background:var(--border);border-radius:2px;margin-top:10px;overflow:hidden;transition:background var(--dur) var(--ease)}
+.skill-bar{height:100%;border-radius:2px;background:var(--accent);width:0%;transition:width 800ms var(--ease),background var(--dur) var(--ease)}
+
+/* ── PROJECTS ────────────────────────── */
+#projects{background:var(--bg)}
+.project-card{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease)}
+.project-card-header{padding:36px 40px 28px;border-bottom:1px solid var(--border);transition:border-color var(--dur) var(--ease)}
+.project-tag{display:inline-block;padding:4px 14px;background:var(--accent);color:#fff;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;border-radius:2px;margin-bottom:18px;transition:background var(--dur) var(--ease)}
+.project-title{font-size:1.9rem;color:var(--text);margin-bottom:10px;transition:color var(--dur) var(--ease)}
+.project-desc{font-size:0.9rem;color:var(--text2);line-height:1.75;transition:color var(--dur) var(--ease)}
+.schematic{padding:32px 40px;background:var(--bg2);display:grid;grid-template-columns:repeat(4,1fr);gap:20px;transition:background var(--dur) var(--ease)}
+.schematic-block{padding:22px 18px;border:1px solid var(--border);border-radius:6px;background:var(--card);transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease)}
+.schematic-label{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;font-weight:600;transition:color var(--dur) var(--ease)}
+.schematic-value{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:700;color:var(--text);line-height:1;transition:color var(--dur) var(--ease)}
+.schematic-unit{font-size:0.72rem;color:var(--text3);margin-top:4px;transition:color var(--dur) var(--ease)}
+.piezo-viz{display:flex;align-items:flex-end;gap:5px;margin-top:14px;height:32px}
+.piezo-step{flex:1;border-radius:2px;background:var(--accent);transition:background var(--dur) var(--ease)}
+@keyframes pulsePiezo{0%,100%{opacity:0.4}50%{opacity:1}}
+
+/* ── GITHUB ──────────────────────────── */
+#github{background:var(--bg)}
+.github-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:28px}
+.gh-card{padding:24px;background:var(--card);border:1px solid var(--border);border-radius:6px;text-align:center;transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease)}
+.gh-num{font-family:'Fraunces',serif;font-size:2.3rem;font-weight:700;color:var(--accent);transition:color var(--dur) var(--ease)}
+.gh-label{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);margin-top:5px;transition:color var(--dur) var(--ease)}
+.contrib-wrap{padding:22px;background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease)}
+.contrib-grid{display:grid;grid-template-columns:repeat(52,1fr);gap:3px}
+.contrib-cell{aspect-ratio:1;border-radius:2px;transition:background 150ms}
+.legend-row{display:flex;align-items:center;gap:12px;margin-top:14px}
+.legend-label{font-size:0.68rem;color:var(--text3);letter-spacing:0.07em;transition:color var(--dur) var(--ease)}
+.legend-cells{display:flex;gap:3px}
+.legend-cell{width:12px;height:12px;border-radius:2px}
+
+/* ── ACADEMIC ────────────────────────── */
+#academic{background:var(--bg)}
+.academic-table{width:100%;border-collapse:collapse}
+.academic-table th{text-align:left;padding:12px 20px;font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text3);font-weight:600;border-bottom:1px solid var(--border);transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease)}
+.academic-table td{padding:24px 20px;border-bottom:1px solid var(--border);color:var(--text2);font-size:0.9rem;vertical-align:top;transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease)}
+.academic-table tr:last-child td{border-bottom:none}
+.score-badge{display:inline-block;padding:6px 16px;background:var(--accent);color:#fff;border-radius:20px;font-size:0.82rem;font-weight:700;font-family:'Fraunces',serif;transition:background var(--dur) var(--ease)}
+.inst-name{font-weight:600;color:var(--text);font-size:0.96rem;transition:color var(--dur) var(--ease)}
+.rank-tag{display:inline-block;margin-top:7px;padding:3px 11px;border:1px solid var(--accent);color:var(--accent);font-size:0.66rem;letter-spacing:0.1em;border-radius:2px;transition:border-color var(--dur) var(--ease),color var(--dur) var(--ease)}
+
+/* ── TIMELINE ────────────────────────── */
+#timeline{background:var(--bg)}
+.timeline-wrap{position:relative;padding-left:44px;max-width:720px}
+.timeline-line{position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--border);transition:background var(--dur) var(--ease)}
+.timeline-item{position:relative;margin-bottom:56px}
+.timeline-item:last-child{margin-bottom:0}
+.timeline-dot{position:absolute;left:-48px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);box-shadow:0 0 0 3px var(--glow);transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease)}
+.timeline-dot.big{width:14px;height:14px;left:-51px;top:4px}
+.timeline-year{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:7px;transition:color var(--dur) var(--ease)}
+.timeline-heading{font-size:1.15rem;color:var(--text);margin-bottom:9px;transition:color var(--dur) var(--ease)}
+.timeline-body{font-size:0.87rem;color:var(--text2);line-height:1.75;transition:color var(--dur) var(--ease)}
+
+/* ── CERTS ───────────────────────────── */
+#certs{background:var(--bg)}
+.certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:36px}
+.cert-card{padding:26px;background:var(--card);border:1px solid var(--border);border-radius:8px;transition:transform 200ms,background var(--dur) var(--ease),border-color var(--dur) var(--ease)}
+.cert-card:hover{transform:translateY(-5px)}
+.cert-icon{font-size:2rem;margin-bottom:14px;display:block}
+.cert-org{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:600;transition:color var(--dur) var(--ease)}
+.cert-name{font-weight:600;font-size:0.9rem;color:var(--text);margin-bottom:8px;transition:color var(--dur) var(--ease)}
+.cert-desc{font-size:0.77rem;color:var(--text3);line-height:1.65;transition:color var(--dur) var(--ease)}
+.cert-card.placeholder{border-style:dashed;opacity:0.5}
+.resume-block{padding:34px 40px;background:var(--card);border:1px solid var(--border);border-radius:8px;display:grid;grid-template-columns:1fr auto;gap:36px;align-items:center;transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease)}
+.resume-info{font-size:0.86rem;color:var(--text2);line-height:2.1;transition:color var(--dur) var(--ease)}
+.resume-info strong{color:var(--text);font-weight:600;transition:color var(--dur) var(--ease)}
+.dl-btn{padding:16px 28px;background:var(--accent);color:#fff;border:none;border-radius:4px;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:10px;white-space:nowrap;transition:filter 200ms,background var(--dur) var(--ease)}
+.dl-btn:hover{filter:brightness(0.88)}
+
+/* ── LEARNING ────────────────────────── */
+#learning{background:var(--bg)}
+.learning-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.learning-card{padding:30px 26px;background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease)}
+.learning-num{font-family:'Fraunces',serif;font-size:3rem;font-weight:700;color:var(--accent);opacity:0.25;line-height:1;transition:color var(--dur) var(--ease)}
+.learning-title{font-weight:600;font-size:0.94rem;color:var(--text);margin:10px 0 10px;transition:color var(--dur) var(--ease)}
+.learning-body{font-size:0.82rem;color:var(--text2);line-height:1.72;transition:color var(--dur) var(--ease)}
+
+/* ── FIND ME ─────────────────────────── */
+#findme{background:var(--bg)}
+.social-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.social-card{padding:32px 18px;background:var(--card);border:1px solid var(--border);border-radius:8px;text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:14px;transition:transform 200ms,background 200ms,border-color 200ms,background var(--dur) var(--ease),border-color var(--dur) var(--ease)}
+.social-card:hover{transform:translateY(-7px);background:var(--accent);border-color:var(--accent)}
+.social-card:hover .social-icon,.social-card:hover .social-name,.social-card:hover .social-handle{color:#fff!important}
+.social-icon{font-size:1.8rem;font-family:'Fraunces',serif;font-weight:700;color:var(--accent);transition:color 200ms,color var(--dur) var(--ease);line-height:1}
+.social-name{font-weight:700;font-size:0.86rem;color:var(--text);letter-spacing:0.09em;text-transform:uppercase;transition:color 200ms,color var(--dur) var(--ease)}
+.social-handle{font-size:0.7rem;color:var(--text3);transition:color 200ms,color var(--dur) var(--ease)}
+
+/* ── CONTACT ─────────────────────────── */
+#contact{background:var(--bg)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:start}
+.contact-intro{font-size:0.88rem;color:var(--text2);line-height:1.85;margin-top:18px;transition:color var(--dur) var(--ease)}
+.theme-switcher{margin-top:36px}
+.theme-switcher-label{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3);margin-bottom:14px;transition:color var(--dur) var(--ease)}
+.theme-btns{display:flex;flex-direction:column;gap:8px}
+.theme-btn{padding:11px 18px;border:1px solid var(--border);border-radius:4px;cursor:pointer;font-size:0.8rem;color:var(--text2);background:transparent;font-family:'Plus Jakarta Sans',sans-serif;text-align:left;transition:border-color 200ms,background 200ms,border-color var(--dur) var(--ease),color var(--dur) var(--ease)}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+.form-group{margin-bottom:20px}
+.form-label{display:block;font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text3);margin-bottom:8px;font-weight:600;transition:color var(--dur) var(--ease)}
+.form-input{width:100%;padding:14px 16px;background:transparent;border:1px solid var(--border);border-radius:4px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-size:0.9rem;outline:none;transition:border-color 200ms,box-shadow 200ms,border-color var(--dur) var(--ease),color var(--dur) var(--ease)}
+.form-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--glow)}
+textarea.form-input{resize:vertical;min-height:120px}
+.form-submit{width:100%;padding:16px;background:var(--accent);color:#fff;border:none;border-radius:4px;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.8rem;letter-spacing:0.13em;text-transform:uppercase;font-weight:600;cursor:pointer;margin-top:8px;transition:filter 200ms,background var(--dur) var(--ease)}
+.form-submit:hover{filter:brightness(0.88)}
+
+/* ── THEME DOTS ──────────────────────── */
+.theme-dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:999;display:flex;flex-direction:column;gap:10px}
+.tdot{width:8px;height:8px;border-radius:50%;cursor:pointer;border:1.5px solid var(--text3);background:transparent;transition:background 300ms,transform 200ms,border-color var(--dur) var(--ease)}
+.tdot.active{background:var(--accent);transform:scale(1.5);border-color:var(--accent)}
+.tdot:hover:not(.active){transform:scale(1.3)}
+
+/* ── FOOTER ──────────────────────────── */
+footer{padding:32px 52px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:var(--bg);transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease)}
+.footer-copy{font-size:0.76rem;color:var(--text3);transition:color var(--dur) var(--ease)}
+.footer-brand{font-family:'Fraunces',serif;font-size:1rem;color:var(--accent);font-weight:700;transition:color var(--dur) var(--ease)}
+
+/* ── FADE-IN ─────────────────────────── */
+.fade-in{opacity:0;transform:translateY(26px);transition:opacity 700ms ease,transform 700ms ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ──────────────────────── */
+@media(max-width:960px){
+  nav{padding:16px 24px}
+  .nav-links{gap:18px}
+  .nav-links a{font-size:0.7rem}
+  section{padding:110px 24px 70px}
+  .home-grid,.about-grid,.skills-layout,.contact-grid{grid-template-columns:1fr;gap:40px}
+  #kinetic{height:260px}
+  .schematic{grid-template-columns:1fr 1fr}
+  .github-grid{grid-template-columns:1fr 1fr}
+  .certs-grid,.social-grid,.learning-grid{grid-template-columns:1fr 1fr}
+  .resume-block{grid-template-columns:1fr;gap:20px}
+  footer{padding:24px}
+}
+@media(max-width:600px){
+  .nav-links{display:none}
+  .certs-grid,.social-grid,.learning-grid,.github-grid{grid-template-columns:1fr}
+  .schematic{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ░░ LOADER ░░ -->
+<div id="loader">
+  <div class="loader-bloom"></div>
+  <div class="loader-name">SUBALEGHASRI M</div>
+  <div class="loader-sub">Climatic Portfolio · Loading</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+</div>
+
+<!-- ░░ THEME DOTS ░░ -->
+<div class="theme-dots">
+  <div class="tdot active" data-theme="greenhouse" title="Greenhouse Shift"></div>
+  <div class="tdot" data-theme="tundra" title="Frozen Tundra"></div>
+  <div class="tdot" data-theme="renewable" title="Renewable Shift"></div>
+  <div class="tdot" data-theme="horizon" title="Restored Horizon"></div>
+</div>
+
+<!-- ░░ NAV ░░ -->
+<nav>
+  <a class="nav-logo" href="#">SLM</a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#github">GitHub</a></li>
+    <li><a href="#academic">Academic</a></li>
+    <li><a href="#timeline">Journey</a></li>
+    <li><a href="#certs">Certs</a></li>
+    <li><a href="#learning">Learning</a></li>
+    <li><a href="#findme">Find Me</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ░░ §1 HOME ░░ -->
+<section id="home">
+  <div class="container home-grid">
+    <div class="fade-in">
+      <div class="home-eyebrow">Electronics &amp; Communication Engineering</div>
+      <h1 class="t-heading home-title">SUBALEGHASRI<br><span class="t-sub" style="color:var(--accent);font-size:0.88em">M.</span></h1>
+      <p class="home-subtitle">Bridging hardware interfaces and clean software scripting — building prototypes that harvest energy from every footstep and translate physical impulses into digital intelligence.</p>
+      <a class="home-cta" href="#about">
+        Discover My Work
+        <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5h12M9 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div id="kinetic" class="fade-in">
+      <canvas id="wave"></canvas>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Scroll to explore</span>
+  </div>
+</section>
+
+<!-- ░░ §2 ABOUT ░░ -->
+<section id="about">
+  <div class="container fade-in">
+    <div class="section-header">
+      <div class="section-eyebrow">Personal Information</div>
+      <h2 class="t-heading section-title">Grounded in Purpose</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="about-grid">
+      <div>
+        <div class="about-stat">
+          <div class="about-stat-num">8.52</div>
+          <div class="about-stat-label">Current GPA — Sona College</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">93.5%</div>
+          <div class="about-stat-label">Secondary School Score</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">Top 10</div>
+          <div class="about-stat-label">Department Rank · 2025</div>
+        </div>
+        <div class="pill-row">
+          <span class="pill">Tamil (Native)</span>
+          <span class="pill">Telugu</span>
+          <span class="pill">English (Fluent)</span>
+          <span class="pill">French</span>
+        </div>
+      </div>
+      <div>
+        <div class="section-eyebrow" style="margin-bottom:14px">About Me</div>
+        <div class="about-bio">
+          <p>I'm <strong>Subaleghasri M</strong> — a motivated and detail-oriented Electronics and Communication Engineering student at Sona College of Technology, currently maintaining a GPA of 8.52 and ranked in the top 10 of my department.</p>
+          <p>My passion lives at the intersection of hardware interfaces and foundational programming — designing systems where piezoelectric sensors, embedded circuits, and real-time software layers converge into tangible solutions.</p>
+          <p>I seek challenging environments to apply technical knowledge and problem-solving skills, gain meaningful practical experience, and contribute directly to organizational and societal growth. My current prototype — footstep energy generation — embodies that mission.</p>
+        </div>
+        <div class="pill-row" style="margin-top:20px">
+          <span class="pill">Teamwork</span>
+          <span class="pill">Leadership</span>
+          <span class="pill">Critical Thinking</span>
+          <span class="pill">Time Management</span>
+          <span class="pill">Effective Communication</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ §3 SKILLS ░░ -->
+<section id="skills">
+  <div class="container fade-in">
+    <div class="section-header">
+      <div class="section-eyebrow">Skills &amp; Knowledge</div>
+      <h2 class="t-heading section-title">Technical Landscape</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="skills-layout">
+      <div class="radar-wrap"><canvas id="radarChart"></canvas></div>
+      <div class="skill-list" id="skillList"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ §4 PROJECTS ░░ -->
+<section id="projects">
+  <div class="container fade-in">
+    <div class="section-header">
+      <div class="section-eyebrow">Project Showcase</div>
+      <h2 class="t-heading section-title">Footstep Energy Generation</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="project-card">
+      <div class="project-card-header">
+        <div class="project-tag">ISMART 2026 — Innovation Prototype</div>
+        <h3 class="t-heading project-title">Kinetic Harvesting via Piezoelectric Array</h3>
+        <p class="project-desc">A novel prototype that converts mechanical energy from human footsteps into usable electrical energy using a piezoelectric and electromagnetic sensor array. The system tracks active kinetic harvesting via a real-time digital voltage step-counter display, demonstrating how high-footfall environments — corridors, stations, pavements — can become distributed clean energy generators.</p>
+      </div>
+      <div class="schematic">
+        <div class="schematic-block">
+          <div class="schematic-label">Sensor Array</div>
+          <div class="schematic-value">8-Node</div>
+          <div class="schematic-unit">Piezoelectric / Electromagnetic</div>
+          <div class="piezo-viz" id="piezoViz"></div>
+        </div>
+        <div class="schematic-block">
+          <div class="schematic-label">Live Voltage Counter</div>
+          <div class="schematic-value" id="voltageCounter">0.00</div>
+          <div class="schematic-unit">Volts — Active Harvesting</div>
+          <div style="margin-top:12px;font-size:0.72rem;color:var(--text3)">Step count: <span id="stepCount" style="color:var(--accent);font-weight:700">0</span></div>
+        </div>
+        <div class="schematic-block">
+          <div class="schematic-label">Cumulative Power</div>
+          <div class="schematic-value" id="energyOut">0.0</div>
+          <div class="schematic-unit">mW — Total Output</div>
+          <div style="margin-top:12px;height:4px;background:var(--border);border-radius:2px;overflow:hidden">
+            <div id="energyBar" style="height:100%;width:0%;background:var(--accent);border-radius:2px;transition:width 400ms ease"></div>
+          </div>
+        </div>
+        <div class="schematic-block">
+          <div class="schematic-label">System Status</div>
+          <div class="schematic-value" id="sysStatus" style="font-size:1.15rem;color:var(--accent)">● ACTIVE</div>
+          <div class="schematic-unit">Real-time Kinetic Mode</div>
+          <div style="margin-top:12px;font-size:0.72rem;color:var(--text3)">Efficiency: <span style="color:var(--accent);font-weight:700">74%</span> Peak</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ §5 GITHUB ░░ -->
+<section id="github">
+  <div class="container fade-in">
+    <div class="section-header">
+      <div class="section-eyebrow">GitHub Performance</div>
+      <h2 class="t-heading section-title">Development Dashboard</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="github-grid">
+      <div class="gh-card"><div class="gh-num">142</div><div class="gh-label">Contributions</div></div>
+      <div class="gh-card"><div class="gh-num">8</div><div class="gh-label">Repositories</div></div>
+      <div class="gh-card"><div class="gh-num">24</div><div class="gh-label">Day Streak</div></div>
+      <div class="gh-card"><div class="gh-num">3</div><div class="gh-label">Languages</div></div>
+    </div>
+    <div class="contrib-wrap">
+      <div class="contrib-grid" id="contribGrid"></div>
+      <div class="legend-row">
+        <span class="legend-label">Less</span>
+        <div class="legend-cells" id="legendCells"></div>
+        <span class="legend-label">More</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ §6 ACADEMIC ░░ -->
+<section id="academic">
+  <div class="container fade-in">
+    <div class="section-header">
+      <div class="section-eyebrow">Academic Performance</div>
+      <h2 class="t-heading section-title">Academic Record</h2>
+      <div class="section-rule"></div>
+    </div>
+    <table class="academic-table">
+      <thead>
+        <tr>
+          <th>Institution</th>
+          <th>Period</th>
+          <th>Program</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="inst-name">Sona College of Technology</div>
+            <div class="rank-tag">Department Top 10 · 2025</div>
+          </td>
+          <td style="color:var(--text3)">2024 – 2028</td>
+          <td>BE – Electronics &amp; Communication Engineering</td>
+          <td><span class="score-badge">GPA 8.52</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="inst-name">Sowdambikaa Matric Secondary School</div>
+          </td>
+          <td style="color:var(--text3)">2016 – 2023</td>
+          <td>Standard 6th – 12th</td>
+          <td><span class="score-badge">93.5 %</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ░░ §7 TIMELINE ░░ -->
+<section id="timeline">
+  <div class="container fade-in">
+    <div class="section-header">
+      <div class="section-eyebrow">Climatic Journey</div>
+      <h2 class="t-heading section-title">Milestones in Motion</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="timeline-wrap">
+      <div class="timeline-line"></div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2023</div>
+        <h3 class="t-heading timeline-heading">Secondary Education Complete</h3>
+        <p class="timeline-body">Graduated from Sowdambikaa Matric Secondary School with 93.5%, building a strong analytical foundation across science, mathematics, and technology that would power my engineering ambitions.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2024</div>
+        <h3 class="t-heading timeline-heading">Commencing BE in ECE — Sona College of Technology</h3>
+        <p class="timeline-body">Enrolled in the Bachelor of Electronics and Communication Engineering, diving into circuits, signal processing, embedded systems, and foundational programming languages including Python and C++.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2025</div>
+        <h3 class="t-heading timeline-heading">Department Top 10 Achieved</h3>
+        <p class="timeline-body">Secured a place among the top 10 students in the ECE department with a CGPA of 8.52 — recognizing consistent academic performance, technical rigor, and active engagement in learning beyond the curriculum.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2025 – 26</div>
+        <h3 class="t-heading timeline-heading">Pragati Internship for Women</h3>
+        <p class="timeline-body">Completed the Pragati Internship program for women in engineering, earning a certification course and gaining real-world exposure to professional practices and industry-grade problem-solving.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot big"></div>
+        <div class="timeline-year">2026</div>
+        <h3 class="t-heading timeline-heading">Footstep Energy Generation — ISMART 2026</h3>
+        <p class="timeline-body">Developing an innovative prototype for ISMART 2026 that generates electricity from human footstep pressure via piezoelectric and electromagnetic sensor arrays — turning everyday movement into distributed clean energy with real-time voltage tracking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ §8 CERTS & RESUME ░░ -->
+<section id="certs">
+  <div class="container fade-in">
+    <div class="section-header">
+      <div class="section-eyebrow">Certificates &amp; Resume</div>
+      <h2 class="t-heading section-title">Credentials</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <span class="cert-icon">🎨</span>
+        <div class="cert-org">NPTEL</div>
+        <div class="cert-name">Design Thinking</div>
+        <div class="cert-desc">Problem-solving methodologies, innovation process, empathy mapping, prototyping, and structured creative ideation frameworks.</div>
+      </div>
+      <div class="cert-card">
+        <span class="cert-icon">💡</span>
+        <div class="cert-org">NASSCOM</div>
+        <div class="cert-name">Digital 101 Course</div>
+        <div class="cert-desc">Foundational digital technologies, industry trends, emerging technology frameworks shaping the modern digital economy.</div>
+      </div>
+      <div class="cert-card">
+        <span class="cert-icon">📡</span>
+        <div class="cert-org">VIT College — National Level</div>
+        <div class="cert-name">Printed Bluetooth &amp; Antenna IoT</div>
+        <div class="cert-desc">National-level workshop on printed Bluetooth applications and antenna-integrated IoT system architectures.</div>
+      </div>
+      <div class="cert-card">
+        <span class="cert-icon">🌐</span>
+        <div class="cert-org">Sona College of Technology</div>
+        <div class="cert-name">IoT using LoRaWAN</div>
+        <div class="cert-desc">Long-range, low-power IoT communication using LoRaWAN protocol for large-scale distributed sensor network deployments.</div>
+      </div>
+      <div class="cert-card">
+        <span class="cert-icon">⚡</span>
+        <div class="cert-org">Pragati — Women in Engineering</div>
+        <div class="cert-name">Pragati Internship Certification</div>
+        <div class="cert-desc">Completed the Pragati Internship for Women, bridging theoretical engineering knowledge with real-world industry application.</div>
+      </div>
+      <div class="cert-card placeholder">
+        <span class="cert-icon">📎</span>
+        <div class="cert-org">Placeholder</div>
+        <div class="cert-name">Certificate Image Slot</div>
+        <div class="cert-desc">Upload your raw certificate image here — this component is ready to receive a src image input directly.</div>
+      </div>
+    </div>
+    <div class="resume-block">
+      <div>
+        <div class="section-eyebrow" style="margin-bottom:14px">Direct Contact</div>
+        <div class="resume-info">
+          <strong>📞 Phone: </strong>+91 9626605765<br>
+          <strong>📧 Email: </strong>subaleghasri21@gmail.com<br>
+          <strong>📍 Address: </strong>West Mariamman Kovil Street, Uppillapuram,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thuralyur, Trichy — 621011
+        </div>
+      </div>
+      <button class="dl-btn" onclick="alert('Connect your resume PDF link here!')">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v9M4 7l4 4 4-4M2 13h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Download Resume
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ §9 LEARNING ░░ -->
+<section id="learning">
+  <div class="container fade-in">
+    <div class="section-header">
+      <div class="section-eyebrow">Beyond the Classroom</div>
+      <h2 class="t-heading section-title">Independent Exploration</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="learning-grid">
+      <div class="learning-card">
+        <div class="learning-num">01</div>
+        <div class="learning-title">NASSCOM Digital Ecosystem</div>
+        <div class="learning-body">Investigated NASSCOM's digital technology shifts, understanding how foundational digital economics, cloud platforms, and emerging tech frameworks are reshaping modern engineering career landscapes.</div>
+      </div>
+      <div class="learning-card">
+        <div class="learning-num">02</div>
+        <div class="learning-title">National-Level IoT Workshops</div>
+        <div class="learning-body">Attended advanced national workshops at VIT College on Printed Bluetooth and Antenna IoT applications, plus a deep-dive into LoRaWAN technology at Sona College — applying theory directly to radio and wireless sensor systems.</div>
+      </div>
+      <div class="learning-card">
+        <div class="learning-num">03</div>
+        <div class="learning-title">Physical Prototype Engineering</div>
+        <div class="learning-body">Moved beyond simulators to design and build real physical prototypes natively — constructing working energy-harvesting systems using piezoelectric arrays, electromagnetic sensors, and live embedded voltage tracking modules.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ §10 FIND ME ░░ -->
+<section id="findme">
+  <div class="container fade-in">
+    <div class="section-header">
+      <div class="section-eyebrow">Find Me</div>
+      <h2 class="t-heading section-title">Direct Pathways</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="social-grid">
+      <a class="social-card" href="https://www.linkedin.com/in/subaleghasri-m-2b4771358" target="_blank" rel="noopener">
+        <div class="social-icon">in</div>
+        <div class="social-name">LinkedIn</div>
+        <div class="social-handle">subaleghasri-m</div>
+      </a>
+      <a class="social-card" href="https://github.com/subaleghasri21-cloud" target="_blank" rel="noopener">
+        <div class="social-icon">⌥</div>
+        <div class="social-name">GitHub</div>
+        <div class="social-handle">subaleghasri21-cloud</div>
+      </a>
+      <a class="social-card" href="https://leetcode.com/u/Subaleghasri_06/" target="_blank" rel="noopener">
+        <div class="social-icon">{ }</div>
+        <div class="social-name">LeetCode</div>
+        <div class="social-handle">Subaleghasri_06</div>
+      </a>
+      <a class="social-card" href="https://www.hackerrank.com/profile/subaleghasri21" target="_blank" rel="noopener">
+        <div class="social-icon">&lt;/&gt;</div>
+        <div class="social-name">HackerRank</div>
+        <div class="social-handle">subaleghasri21</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ §11 CONTACT ░░ -->
+<section id="contact">
+  <div class="container fade-in">
+    <div class="section-header">
+      <div class="section-eyebrow">The Restored Horizon</div>
+      <h2 class="t-heading section-title">Connect With Me</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro">Open to internships, research collaborations, and full-time opportunities in electronics, embedded systems, and hardware-software integration. Let's build something that matters.</p>
+        <div class="theme-switcher">
+          <div class="theme-switcher-label">Change Climate State</div>
+          <div class="theme-btns">
+            <button class="theme-btn" onclick="setTheme('greenhouse')">🌿 Greenhouse Shift — Warm Terracotta</button>
+            <button class="theme-btn" onclick="setTheme('tundra')">❄️ Frozen Tundra — Glacial Blue</button>
+            <button class="theme-btn" onclick="setTheme('renewable')">⚡ Renewable Shift — Forest Green</button>
+            <button class="theme-btn" onclick="setTheme('horizon')">🌅 Restored Horizon — Midnight Gold</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input type="text" class="form-input" placeholder="Full name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Organization</label>
+          <input type="text" class="form-input" placeholder="Company / Institution">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-input" placeholder="Tell me about the opportunity..."></textarea>
+        </div>
+        <button class="form-submit">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ FOOTER ░░ -->
+<footer>
+  <div class="footer-copy">© 2026 SUBALEGHASRI M — Electronics &amp; Communication Engineering</div>
+  <div class="footer-brand">SLM</div>
+</footer>
+
+<!-- Chart.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script>
+// ═══════════════════════════════════════════════
+// THEME ENGINE
+// ═══════════════════════════════════════════════
+const themes = {
+  greenhouse:{
+    '--bg':'#f5ece0','--bg2':'#eeddd0','--accent':'#d4703a','--accent2':'#b85a28',
+    '--text':'#2c1a0e','--text2':'#6b4733','--text3':'#a07558',
+    '--border':'rgba(180,100,50,0.18)','--card':'rgba(255,248,240,0.7)','--glow':'rgba(212,112,58,0.2)'
+  },
+  tundra:{
+    '--bg':'#e8f2f8','--bg2':'#d5e9f5','--accent':'#2d7aaa','--accent2':'#1a5f8c',
+    '--text':'#0d2233','--text2':'#2d5068','--text3':'#5a8aaa',
+    '--border':'rgba(45,122,170,0.2)','--card':'rgba(240,250,255,0.75)','--glow':'rgba(45,122,170,0.2)'
+  },
+  renewable:{
+    '--bg':'#e8f4ed','--bg2':'#d4ecdc','--accent':'#2a8c52','--accent2':'#1f6e3e',
+    '--text':'#0e2818','--text2':'#2a5438','--text3':'#4f8862',
+    '--border':'rgba(42,140,82,0.2)','--card':'rgba(240,252,245,0.75)','--glow':'rgba(42,140,82,0.2)'
+  },
+  horizon:{
+    '--bg':'#13161f','--bg2':'#1c2030','--accent':'#e8c060','--accent2':'#c9a040',
+    '--text':'#f0e8d8','--text2':'#b8a888','--text3':'#786a50',
+    '--border':'rgba(232,192,96,0.2)','--card':'rgba(28,34,50,0.85)','--glow':'rgba(232,192,96,0.18)'
+  }
+};
+
+let currentTheme = 'greenhouse';
+
+function setTheme(name) {
+  currentTheme = name;
+  const t = themes[name];
+  const root = document.documentElement.style;
+  Object.entries(t).forEach(([k, v]) => root.setProperty(k, v));
+  document.querySelectorAll('.tdot').forEach(d => {
+    d.classList.toggle('active', d.dataset.theme === name);
+  });
+  if (radarChart) updateRadar();
+  updateContribColors();
+  updatePiezoColors();
+}
+
+document.querySelectorAll('.tdot').forEach(d =>
+  d.addEventListener('click', () => setTheme(d.dataset.theme))
+);
+
+function getAccent() {
+  return getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+}
+function getText2() {
+  return getComputedStyle(document.documentElement).getPropertyValue('--text2').trim();
+}
+function getBorder() {
+  return getComputedStyle(document.documentElement).getPropertyValue('--border').trim();
+}
+
+// ═══════════════════════════════════════════════
+// LOADER
+// ═══════════════════════════════════════════════
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hidden');
+    triggerFadeIns();
+  }, 2600);
+});
+
+function triggerFadeIns() {
+  document.querySelectorAll('.fade-in').forEach((el, i) => {
+    setTimeout(() => el.classList.add('visible'), i * 60);
+  });
+}
+
+// ═══════════════════════════════════════════════
+// INTERSECTION OBSERVER — fade in on scroll
+// ═══════════════════════════════════════════════
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+// ═══════════════════════════════════════════════
+// SCROLL-BASED THEME SWITCH
+// ═══════════════════════════════════════════════
+const sectionThemeMap = {
+  home:'greenhouse', about:'greenhouse', skills:'tundra',
+  projects:'renewable', github:'tundra', academic:'greenhouse',
+  timeline:'renewable', certs:'greenhouse', learning:'tundra',
+  findme:'renewable', contact:'horizon'
+};
+const sectionIds = Object.keys(sectionThemeMap);
+
+window.addEventListener('scroll', () => {
+  let current = 'home';
+  sectionIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top < window.innerHeight * 0.45) current = id;
+  });
+  const next = sectionThemeMap[current];
+  if (next && next !== currentTheme) setTheme(next);
+}, { passive: true });
+
+// ═══════════════════════════════════════════════
+// WAVE CANVAS ANIMATION
+// ═══════════════════════════════════════════════
+const wc = document.getElementById('wave');
+const wctx = wc.getContext('2d');
+let wt = 0;
+
+function resizeWave() {
+  const k = document.getElementById('kinetic');
+  wc.width = k.offsetWidth;
+  wc.height = k.offsetHeight;
+}
+resizeWave();
+window.addEventListener('resize', resizeWave);
+
+function drawWave() {
+  wctx.clearRect(0, 0, wc.width, wc.height);
+  const accent = getAccent();
+  const text3 = getComputedStyle(document.documentElement).getPropertyValue('--text3').trim();
+  const W = wc.width, H = wc.height;
+
+  for (let w = 0; w < 5; w++) {
+    wctx.beginPath();
+    wctx.moveTo(0, H / 2);
+    for (let x = 0; x <= W; x += 3) {
+      const y = H / 2
+        + Math.sin((x / W * 5 + wt + w * 0.9) * Math.PI) * ((w + 1) * 16)
+        * Math.cos(wt * 0.25 + w * 0.5);
+      wctx.lineTo(x, y);
+    }
+    wctx.strokeStyle = w < 2 ? accent : text3;
+    wctx.lineWidth = w === 0 ? 2.5 : 1.2;
+    wctx.globalAlpha = 0.55 - w * 0.08;
+    wctx.stroke();
+  }
+
+  // Floating energy particles
+  for (let i = 0; i < 22; i++) {
+    const px = ((Math.sin(wt * 0.35 + i * 1.6) + 1) / 2) * W;
+    const py = H / 2 + Math.sin(wt * 0.9 + i * 0.85) * 70;
+    const r = 2 + Math.sin(wt + i) * 1.5;
+    wctx.beginPath();
+    wctx.arc(px, py, Math.max(0.5, r), 0, Math.PI * 2);
+    wctx.fillStyle = accent;
+    wctx.globalAlpha = 0.65;
+    wctx.fill();
+  }
+
+  wctx.globalAlpha = 1;
+  wt += 0.016;
+  requestAnimationFrame(drawWave);
+}
+drawWave();
+
+// ═══════════════════════════════════════════════
+// SKILL LIST + RADAR CHART
+// ═══════════════════════════════════════════════
+const skillData = [
+  { name:'Python', pct:65, cat:'Technical' },
+  { name:'C++ (Intermediate)', pct:55, cat:'Technical' },
+  { name:'Data Structures', pct:45, cat:'Technical' },
+  { name:'Critical Thinking', pct:88, cat:'Soft Skill' },
+  { name:'Leadership', pct:82, cat:'Soft Skill' },
+  { name:'Teamwork', pct:90, cat:'Soft Skill' },
+  { name:'Communication', pct:85, cat:'Soft Skill' },
+  { name:'Time Management', pct:80, cat:'Soft Skill' },
+];
+
+const sl = document.getElementById('skillList');
+skillData.forEach(s => {
+  const d = document.createElement('div');
+  d.className = 'skill-item';
+  d.innerHTML = `
+    <div class="skill-item-top">
+      <div>
+        <div class="skill-name">${s.name}</div>
+        <div class="skill-cat">${s.cat}</div>
+      </div>
+      <span class="skill-pct">${s.pct}%</span>
+    </div>
+    <div class="skill-bar-bg"><div class="skill-bar" data-pct="${s.pct}"></div></div>`;
+  sl.appendChild(d);
+});
+setTimeout(() => {
+  document.querySelectorAll('.skill-bar').forEach(b => b.style.width = b.dataset.pct + '%');
+}, 600);
+
+let radarChart = null;
+function initRadar() {
+  const canvas = document.getElementById('radarChart');
+  const accent = getAccent();
+  radarChart = new Chart(canvas, {
+    type: 'radar',
+    data: {
+      labels: ['Python', 'C++', 'Data Structures', 'Critical Thinking', 'Leadership', 'Communication'],
+      datasets: [{
+        label: 'Proficiency',
+        data: [65, 55, 45, 88, 82, 85],
+        borderColor: accent,
+        backgroundColor: accent + '2a',
+        pointBackgroundColor: accent,
+        pointBorderColor: '#fff',
+        pointRadius: 5,
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: { legend: { display: false } },
+      scales: { r: {
+        angleLines: { color: 'rgba(128,128,128,0.15)' },
+        grid: { color: 'rgba(128,128,128,0.15)' },
+        pointLabels: { font: { family: "'Plus Jakarta Sans',sans-serif", size: 11 }, color: getText2() },
+        ticks: { display: false },
+        min: 0, max: 100
+      }}
+    }
+  });
+}
+function updateRadar() {
+  if (!radarChart) return;
+  const accent = getAccent();
+  radarChart.data.datasets[0].borderColor = accent;
+  radarChart.data.datasets[0].backgroundColor = accent + '2a';
+  radarChart.data.datasets[0].pointBackgroundColor = accent;
+  radarChart.options.scales.r.pointLabels.color = getText2();
+  radarChart.update();
+}
+setTimeout(initRadar, 400);
+
+// ═══════════════════════════════════════════════
+// PIEZO ANIMATION
+// ═══════════════════════════════════════════════
+const pviz = document.getElementById('piezoViz');
+for (let i = 0; i < 8; i++) {
+  const d = document.createElement('div');
+  d.className = 'piezo-step';
+  d.style.height = (16 + i * 2) + 'px';
+  d.style.opacity = i < 5 ? '0.9' : '0.3';
+  d.style.animation = 'pulsePiezo ' + (1.4 + i * 0.2) + 's ' + (i * 0.15) + 's ease-in-out infinite';
+  pviz.appendChild(d);
+}
+
+function updatePiezoColors() {
+  document.querySelectorAll('.piezo-step').forEach(p => { p.style.background = getAccent(); });
+}
+
+// ═══════════════════════════════════════════════
+// LIVE VOLTAGE COUNTER
+// ═══════════════════════════════════════════════
+let volt = 0.85, steps = 0, energy = 0;
+setInterval(() => {
+  volt = Math.min(5, Math.max(0, +(volt + (Math.random() * 0.1 - 0.04)).toFixed(3)));
+  if (Math.random() > 0.45) steps++;
+  energy = Math.min(99, +(energy + volt * 0.014).toFixed(1));
+  document.getElementById('voltageCounter').textContent = volt.toFixed(2);
+  document.getElementById('stepCount').textContent = steps;
+  document.getElementById('energyOut').textContent = energy.toFixed(1);
+  document.getElementById('energyBar').style.width = energy + '%';
+}, 900);
+
+// ═══════════════════════════════════════════════
+// GITHUB CONTRIBUTION GRID
+// ═══════════════════════════════════════════════
+function buildContribGrid() {
+  const grid = document.getElementById('contribGrid');
+  grid.innerHTML = '';
+  const accent = getAccent();
+  const opacities = [0, 0.25, 0.50, 0.75, 1.0];
+  for (let i = 0; i < 52 * 7; i++) {
+    const d = document.createElement('div');
+    d.className = 'contrib-cell';
+    const r = Math.random();
+    if (r > 0.68) {
+      const lvl = Math.min(4, Math.floor((r - 0.68) / 0.32 * 5) + 1);
+      d.style.background = accent;
+      d.style.opacity = opacities[lvl];
+    } else {
+      d.style.background = getBorder();
+      d.style.opacity = '1';
+    }
+    grid.appendChild(d);
+  }
+}
+
+function updateContribColors() {
+  const accent = getAccent();
+  const border = getBorder();
+  document.querySelectorAll('.contrib-cell').forEach(c => {
+    if (parseFloat(c.style.opacity) > 0.15 && c.style.background !== border) {
+      c.style.background = accent;
+    }
+  });
+  buildLegend();
+}
+
+function buildLegend() {
+  const lc = document.getElementById('legendCells');
+  if (!lc) return;
+  lc.innerHTML = '';
+  const accent = getAccent();
+  const border = getBorder();
+  [null, 0.25, 0.5, 0.75, 1.0].forEach(op => {
+    const d = document.createElement('div');
+    d.className = 'legend-cell';
+    if (op === null) { d.style.background = border; }
+    else { d.style.background = accent; d.style.opacity = op; }
+    lc.appendChild(d);
+  });
+}
+
+buildContribGrid();
+buildLegend();
+</script>
+</body>
+</html>
