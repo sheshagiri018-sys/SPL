@@ -31,7 +31,7 @@ This portfolio connects **climate change with different academic and real-world 
 * ⚡ Energy consumption patterns
 * 🌊 Global environmental shifts
 
-Each section of the website represents a **different dimension of climate impact**.
+Each section of the website represents a **different dimension of climate impact**.!!
 
 ---
 
