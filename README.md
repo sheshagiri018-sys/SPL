@@ -21,7 +21,7 @@ The goal is to make climate data feel more **visual, intuitive, and engaging** r
 
 ---
 
-## 🌦️ Core Concept
+## 🌦️ "Core Concept"
 
 This portfolio connects **climate change with different academic and real-world aspects**, such as:
 
