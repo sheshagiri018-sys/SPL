@@ -21,7 +21,7 @@ The goal is to make climate data feel more **visual, intuitive, and engaging** r
 
 ---
 
-## 🌦️ "Core Concept"
+## 🌦️ "Core Concept"🌠
 
 This portfolio connects **climate change with different academic and real-world aspects**, such as:
 
@@ -35,7 +35,7 @@ Each section of the website represents a **different dimension of climate impact
 
 ---
 
-## ✨ Features
+## ✨ Features🌌
 
 * 🌍 Interactive climate-based UI design
 * 📊 Visual representation of environmental changes
@@ -47,7 +47,7 @@ Each section of the website represents a **different dimension of climate impact
 
 ---
 
-## 🎨 Design Approach
+## 🎨 Design Approach🗽
 
 The design is inspired by:
 
@@ -60,7 +60,7 @@ The interface blends **education + visualization + interactivity**.
 
 ---
 
-## ⚙️ Technologies Used
+## ⚙️ Technologies Used🪐
 
 * 🌐 HTML5
 * 🎨 CSS3 (Animations & Styling)
