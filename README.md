@@ -7,7 +7,7 @@ This project focuses on combining **data visualization, storytelling, and intera
 
 ---
 
-## 🎯 Project Vision
+## 🎯 Project Vision🗽
 
 The main idea behind this project is to transform complex climate concepts into a **visual and interactive web experience**, showcasing:
 
@@ -86,7 +86,7 @@ This project helped me improve in:
 
 ---
 
-## 🚀 Future Enhancements
+## 🚀 Future Enhancements🌠
 
 * 📈 Real-time climate data integration (API-based)
 * 🌦️ Advanced weather animation systems
