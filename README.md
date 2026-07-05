@@ -1,5 +1,5 @@
 # SPL
-# 🌍 Climate Change Interactive Portfolio | Data-Driven Web Experience 🌦️
+# 🌍 Climate Change Interactive Portfolio | Data-Driven Web Experience 🌦️🌠💫✨
 
 Welcome to my **Climate Change Interactive Portfolio Website** — a creative frontend project designed to visually represent **climatic changes and their impact across different domains of study**.
 
@@ -68,7 +68,7 @@ The interface blends **education + visualization + interactivity**.
 
 ---
 
-## 🧠 What I Learned
+## 🧠 What I Learned????
 
 This project helped me improve in:
 
