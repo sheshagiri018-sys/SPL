@@ -80,7 +80,7 @@ This project helped me improve in:
 
 ---
 
-## 📌 Project Status
+## 📌 Project Status!!!!
 
 ✅ Completed and deployed as a frontend portfolio project
 
